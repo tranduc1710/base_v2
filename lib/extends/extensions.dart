@@ -73,6 +73,12 @@ extension NumExtensions on num {
         Duration(milliseconds: (this * 1000).toInt()),
         computation,
       );
+
+  /// Tao widget khoang cach chieu cao
+  Widget wSpaceHeight() => SizedBox(height: toDouble());
+
+  /// Tao widget khoang cach chieu rong
+  Widget wSpaceWidth() => SizedBox(width: toDouble());
 }
 
 extension DoubleNullExtensions on double? {
