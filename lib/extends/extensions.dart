@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../config/style.dart';
 import 'inherited.dart';
 
 extension ObjectExtensions<O> on O {
@@ -210,7 +209,7 @@ extension StringExtensions on String {
   /// tao widget tu String
   Widget wText({TextStyle? style, int? maxLength, TextAlign? textAlign, int? maxLines, TextOverflow? overflow, bool? softWrap}) => Text(
         maxLength == null || maxLength == 0 || length > maxLength.abs() ? this : '${substring(0, maxLength.abs())}...',
-        style: style ?? AppStyle.normal,
+        style: style,
         textAlign: textAlign,
         maxLines: maxLines,
         overflow: overflow,
@@ -223,11 +222,11 @@ extension StringExtensions on String {
           children: [
             TextSpan(
               text: this,
-              style: style ?? AppStyle.normal,
+              style: style,
             ),
             TextSpan(
               text: " *",
-              style: (style ?? AppStyle.normal).copyWith(color: Colors.red),
+              style: style?.copyWith(color: Colors.red),
             ),
           ],
         ),
@@ -239,11 +238,11 @@ extension StringExtensions on String {
           children: [
             TextSpan(
               text: "$this:",
-              style: style ?? AppStyle.normal,
+              style: style,
             ),
             TextSpan(
               text: " *",
-              style: (style ?? AppStyle.normal).copyWith(color: Colors.red),
+              style: style?.copyWith(color: Colors.red),
             ),
           ],
         ),
@@ -294,7 +293,7 @@ extension BuildContextExtensions on BuildContext {
             borderRadius: BorderRadius.circular(borderRadius ?? 17),
           ),
           child: message.wText(
-            style: textStyle ?? AppStyle.normal,
+            style: textStyle,
           ),
         ),
       ),
